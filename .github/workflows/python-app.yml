@@ -6,10 +6,10 @@ name: Python application
 on:
   push:
     branches:
-      -f24
+      - f24
   pull_request:
     branches: 
-      -f24
+      - f24
 
 permissions:
   contents: read
