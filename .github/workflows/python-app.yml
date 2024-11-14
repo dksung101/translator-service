@@ -31,7 +31,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest openai mock
+        pip install flake8 pytest
+        pip install openai
+        pip install sentence_transformers
+        pip install pytest ipytest pytest-mock mock
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
