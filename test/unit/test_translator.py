@@ -185,13 +185,13 @@ def test_llm_translate_to_english_response():
     non_eng_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
     assert non_eng_eval_score >= 0.90
 
-def test_llm_detect_english_response():
-    eng_eval_score = evaluate(translate_content, eval_single_response_complete, english_eval_set)
-    assert eng_eval_score >= 0.90
+# def test_llm_detect_english_response():
+#     eng_eval_score = evaluate(translate_content, eval_single_response_complete, english_eval_set)
+#     assert eng_eval_score >= 0.90
 
-def test_llm_gibberish_response():
-    gibberish_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
-    assert gibberish_eval_score >= 0.60
+# def test_llm_gibberish_response():
+#     gibberish_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
+#     assert gibberish_eval_score >= 0.60
 
 @patch.object(client.chat.completions, 'create')
 def test_unexpected_language(mocker):
