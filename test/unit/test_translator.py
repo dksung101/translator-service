@@ -8,11 +8,11 @@ non_english_eval_set = [
     {
         "post": "Hier ist dein erstes Beispiel.",
         "expected_answer": (False, "This is your first example.")
+    },
+    {
+        "post": "Je viens de terminer mon projet.",
+        "expected_answer": (False, "I just finished my project.")
     }
-#     {
-#         "post": "Je viens de terminer mon projet.",
-#         "expected_answer": (False, "I just finished my project.")
-#     },
 #     {
 #         "post": "Món ăn yêu thích của tôi là pizza.",
 #         "expected_answer": (False, "My favorite food is pizza.")
@@ -71,11 +71,11 @@ english_eval_set = [
     {
         "post": "Coffee in hand, sunrise on the horizon, and a whole day ahead. Here’s to making the most of it!",
         "expected_answer": (True, "Coffee in hand, sunrise on the horizon, and a whole day ahead. Here’s to making the most of it!")
+    },
+    {
+        "post": "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.",
+        "expected_answer": (True, "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.")
     }
-    # {
-    #     "post": "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.",
-    #     "expected_answer": (True, "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.")
-    # },
     # {
     #     "post": "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!",
     #     "expected_answer": (True, "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!")
@@ -185,13 +185,13 @@ def test_llm_translate_to_english_response():
     non_eng_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
     assert non_eng_eval_score >= 0.90
 
-# def test_llm_detect_english_response():
-#     eng_eval_score = evaluate(translate_content, eval_single_response_complete, english_eval_set)
-#     assert eng_eval_score >= 0.90
+def test_llm_detect_english_response():
+    eng_eval_score = evaluate(translate_content, eval_single_response_complete, english_eval_set)
+    assert eng_eval_score >= 0.90
 
-# def test_llm_gibberish_response():
-#     gibberish_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
-#     assert gibberish_eval_score >= 0.60
+def test_llm_gibberish_response():
+    gibberish_eval_score = evaluate(translate_content, eval_single_response_complete, non_english_eval_set)
+    assert gibberish_eval_score >= 0.60
 
 @patch.object(client.chat.completions, 'create')
 def test_unexpected_language(mocker):
