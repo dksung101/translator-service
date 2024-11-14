@@ -28,7 +28,11 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install openai
+          pip install sentence_transformers
+          pip install pytest ipytest pytest-mock mock
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
