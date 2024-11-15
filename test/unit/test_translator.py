@@ -13,14 +13,14 @@ non_english_eval_set = [
         "post": "Je viens de terminer mon projet.",
         "expected_answer": (False, "I just finished my project.")
     }
-#     {
-#         "post": "Món ăn yêu thích của tôi là pizza.",
-#         "expected_answer": (False, "My favorite food is pizza.")
-#     },
-#     {
-#         "post": "Le persone come te possono notare e prevenire algoritmi dannosi.",
-#         "expected_answer": (False, "People like you can notice and prevent harmful algorithms.")
-#     },
+    {
+        "post": "Món ăn yêu thích của tôi là pizza.",
+        "expected_answer": (False, "My favorite food is pizza.")
+    },
+    {
+        "post": "Le persone come te possono notare e prevenire algoritmi dannosi.",
+        "expected_answer": (False, "People like you can notice and prevent harmful algorithms.")
+    }
 #     {
 #         "post": "Media sosial hanya menggunakan suka dan komentar saya untuk menyarankan postingan.",
 #         "expected_answer": (False, "Social media only uses my likes and comments to suggest posts.")
@@ -75,15 +75,15 @@ english_eval_set = [
     {
         "post": "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.",
         "expected_answer": (True, "Can’t believe I just finished reading a 600-page book in two days! Now I’m left with a book hangover and need recommendations.")
+    },
+    {
+        "post": "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!",
+        "expected_answer": (True, "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!")
+    },
+    {
+        "post": "Today, I learned that sometimes saying “no” is the best thing you can do for yourself. We live in a world that encourages us to say “yes” to every opportunity, every social event, every project. But sometimes, that “yes” can stretch us too thin. By saying “no” when I need to, I’m learning to honor my own time and energy. It’s okay not to please everyone, and it’s okay to choose rest over productivity. Self-care isn’t selfish – it’s essential. Here’s to setting boundaries and making room for what truly matters.",
+        "expected_answer": (True, "Today, I learned that sometimes saying “no” is the best thing you can do for yourself. We live in a world that encourages us to say “yes” to every opportunity, every social event, every project. But sometimes, that “yes” can stretch us too thin. By saying “no” when I need to, I’m learning to honor my own time and energy. It’s okay not to please everyone, and it’s okay to choose rest over productivity. Self-care isn’t selfish – it’s essential. Here’s to setting boundaries and making room for what truly matters.")
     }
-    # {
-    #     "post": "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!",
-    #     "expected_answer": (True, "Just wrapped up a virtual cooking class, and it was so much fun! I learned to make authentic Italian pasta from scratch – turns out, it’s easier than I thought (and way tastier). Highly recommend trying something new like this, especially with friends. Nothing beats homemade!")
-    # },
-    # {
-    #     "post": "Today, I learned that sometimes saying “no” is the best thing you can do for yourself. We live in a world that encourages us to say “yes” to every opportunity, every social event, every project. But sometimes, that “yes” can stretch us too thin. By saying “no” when I need to, I’m learning to honor my own time and energy. It’s okay not to please everyone, and it’s okay to choose rest over productivity. Self-care isn’t selfish – it’s essential. Here’s to setting boundaries and making room for what truly matters.",
-    #     "expected_answer": (True, "Today, I learned that sometimes saying “no” is the best thing you can do for yourself. We live in a world that encourages us to say “yes” to every opportunity, every social event, every project. But sometimes, that “yes” can stretch us too thin. By saying “no” when I need to, I’m learning to honor my own time and energy. It’s okay not to please everyone, and it’s okay to choose rest over productivity. Self-care isn’t selfish – it’s essential. Here’s to setting boundaries and making room for what truly matters.")
-    # },
     # {
     #     "post": "Rainy days + a cup of tea + a good book = pure bliss.",
     #     "expected_answer": (True, "Rainy days + a cup of tea + a good book = pure bliss.")

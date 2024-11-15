@@ -11,10 +11,10 @@ client = AzureOpenAI(
 
 def translate_content(content: str) -> tuple[bool, str]:
     context = (
-        "Check if this text is written in English or not and translate it to English. "
-        "If the text is unintelligible or malformed, return '1 {Error processing post}'. "
-        "If the text is in English, return '1 {Original Text}'. "
-        "If the text is not in English, return '0 {Text Translated to English}'. Here is the text:"
+        "Check if this content is written in English or not and translate it to English. "
+        "If the content is unintelligible or malformed, return '1 Error processing post'. "
+        "If the content is in English, return '1 {content}'. "
+        "If the content is not in English, return '0 {Content Translated to English}'. Here is the content:"
     )
     try:
         response = client.chat.completions.create(
