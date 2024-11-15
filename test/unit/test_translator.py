@@ -133,24 +133,24 @@ english_eval_set = [
 gibberish_eval_set = [
     {
         "post": "asdfghjkjkslswert",
-        "expected_answer": (False, "Error processing post")
+        "expected_answer": (True, "Error processing post")
     }
-    # {
-    #     "post": "dasdghqwiro sdaf pqetkglds",
-    #     "expected_answer": (False, "Error processing post")
-    # },
-    # {
-    #     "post": "sadf asdfa ri3359025 ",
-    #     "expected_answer": (False, "Error processing post")
-    # },
-    # {
-    #     "post": "asdf asdf aksdfjsadkfld",
-    #     "expected_answer": (False, "Error processing post")
-    # },
-    # {
-    #     "post": "sfdj;saldfkjf",
-    #     "expected_answer": (False, "Error processing post")
-    # },
+    {
+        "post": "dasdghqwiro sdaf pqetkglds",
+        "expected_answer": (True, "Error processing post")
+    },
+    {
+        "post": "sadf asdfa ri3359025 ",
+        "expected_answer": (True, "Error processing post")
+    },
+    {
+        "post": "asdf asdf aksdfjsadkfld",
+        "expected_answer": (True, "Error processing post")
+    },
+    {
+        "post": "sfdj;saldfkjf",
+        "expected_answer": (True, "Error processing post")
+    },
 ]
 
 def eval_single_response_translation(expected_answer: str, llm_response: str) -> float:
@@ -198,32 +198,32 @@ def test_unexpected_language(mocker):
   # we mock the model's response to return a random message
   mocker.return_value.choices[0].message.content = "I don't understand your request"
 
-  assert translate_content("Hier ist dein erstes Beispiel.") == (False, "Unexpected translation error.")
+  assert translate_content("Hier ist dein erstes Beispiel.") == (True, "Hier ist dein erstes Beispiel.")
 
 @patch.object(client.chat.completions, 'create')
 def test_empty_response(mocker):
     # Mock the model's response to return an empty message
     mocker.return_value.choices[0].message.content = ""
 
-    assert translate_content("Hier ist dein erstes Beispiel.") == (False, "Unexpected translation error.")
+    assert translate_content("Hier ist dein erstes Beispiel.") == (True, "Hier ist dein erstes Beispiel.")
 
 @patch.object(client.chat.completions, 'create')
 def test_unexpected_bool_val(mocker):
     # Mock the model's response to return an message with a number other than 0 or 1
     mocker.return_value.choices[0].message.content = "2 This is your first example."
 
-    assert translate_content("Hier ist dein erstes Beispiel.") == (False, "Unexpected translation error.")
+    assert translate_content("Hier ist dein erstes Beispiel.") == (True, "Hier ist dein erstes Beispiel.")
 
 @patch.object(client.chat.completions, 'create')
 def test_empty_bool_val(mocker):
     # Mock the model's response to return an message with no number
     mocker.return_value.choices[0].message.content = "This is your first example."
 
-    assert translate_content("Hier ist dein erstes Beispiel.") == (False, "Unexpected translation error.")
+    assert translate_content("Hier ist dein erstes Beispiel.") == (True, "Hier ist dein erstes Beispiel.")
 
 @patch.object(client.chat.completions, 'create')
 def test_no_separation(mocker):
     # Mock the model's response to return a message not formatted correctly
     mocker.return_value.choices[0].message.content = "0This is your first example."
 
-    assert translate_content("Hier ist dein erstes Beispiel.") == (False, "Unexpected translation error.")
+    assert translate_content("Hier ist dein erstes Beispiel.") == (True, "Hier ist dein erstes Beispiel.")

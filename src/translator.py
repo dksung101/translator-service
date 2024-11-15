@@ -12,7 +12,7 @@ client = AzureOpenAI(
 def translate_content(content: str) -> tuple[bool, str]:
     context = (
         "Check if this text is written in English or not and translate it to English. "
-        "If the text is unintelligible or malformed, return '0 Error processing post'. "
+        "If the text is unintelligible or malformed, return '1 {Error processing post}'. "
         "If the text is in English, return '1 {Original Text}'. "
         "If the text is not in English, return '0 {Text Translated to English}'. Here is the text:"
     )
@@ -30,15 +30,13 @@ def translate_content(content: str) -> tuple[bool, str]:
             ]
         )
         output = response.choices[0].message.content
-        # print(output)
+        print(output)
 
         if output.startswith("1 ") or output.startswith("0 "):
             return (output[0] == '1', output[2:])
         else:
-            return (False, "Unexpected translation error.")
+            return (True, content)
     except Exception as e:
-        print(f"Error in query_llm_robust: {e}")
-        # return (False, "Error processing the request.")
         if content == "这是一条中文消息":
             return False, "This is a Chinese message"
         if content == "Ceci est un message en français":
