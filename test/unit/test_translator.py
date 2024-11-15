@@ -134,7 +134,7 @@ gibberish_eval_set = [
     {
         "post": "asdfghjkjkslswert",
         "expected_answer": (True, "Error processing post")
-    }
+    },
     {
         "post": "dasdghqwiro sdaf pqetkglds",
         "expected_answer": (True, "Error processing post")
