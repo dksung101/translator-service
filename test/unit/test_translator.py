@@ -12,7 +12,7 @@ non_english_eval_set = [
     {
         "post": "Je viens de terminer mon projet.",
         "expected_answer": (False, "I just finished my project.")
-    }
+    },
     {
         "post": "Món ăn yêu thích của tôi là pizza.",
         "expected_answer": (False, "My favorite food is pizza.")
